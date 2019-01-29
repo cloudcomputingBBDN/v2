@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.gallery {
+    margin: 15px;
+    margin-top: 30px;
+    border: 2px solid #ccc;
+    float: left;
+    width: 265px;
+    transition:transform 0.5s;
+}
+
+div.gallery:hover {
+    border: 2px solid #777;
+    transform: scale(1.2);
+}
+
+div.gallery img {
+  padding: 8px;
+}
+
+div.desc {
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111;
+}
+#myDIV {
+  -webkit-animation: mymove 7s infinite;
+  animation: mymove 7s infinite;
+}
+@-webkit-keyframes mymove {
+  50% {text-shadow: 20px 30px 40px black;}
+}
+div.box{
+  margin-left: 25px;
+}
+.desc{
+  text-shadow: 4px 4px 10px blue;
+}
+</style>
+</head>
+<body>
+<center>
+  <h1 id="myDIV"><center>SELFIELESS ACTS</center></h1>
+  <ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a href="try.html">Category</a></li>
+  <li style="float:right"><a class="active" href="#">logout</a></li>
+</ul>
+<div class="box">
+<div class="desc">BAKING COOKIES FOR THE ELDERLY</div>
+<div class="gallery">
+   
+  <a target="_blank" href="vote.html">
+    <img src="cat11.jpg" alt="Cinque Terre" width="250px" height="250px">
+  </a>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="vote.html">
+    <img src="cat12.jpg" alt="Forest" width="250px" height="250px">
+  </a>
+</div>
+</div>
+</center>
+</body>
+</html>

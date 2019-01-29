@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Upload </title>
+	<link rel="stylesheet" href="cc.css">
+</head>
+<body>
+<center>
+	  <h1 id="myDIV"><center>SELFIELESS ACTS</center></h1>
+  <ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a href="try.html">Category</a></li>
+  <li style="float:right"><a class="active" href="#">logout</a></li>
+</ul>
+<form>
+<table>
+	<tr>
+		<td><label for="img"> Upload Image </label></td>
+		<td><input type="file" onchange="previewFile()" title=""></td>
+	</tr>
+	<tr>
+		<td colspan="2"><img id="myImg" src=""></td>
+	</tr>
+	<tr>
+		<td><label for="caption"> Caption </label></td> <td> <textarea></textarea></td>
+	</tr>
+	
+	</br>
+</table>
+	<input type="submit" value="Submit" onclick="Submit()"> 
+</form>
+</center>
+</body>
+<script>
+    function previewFile(){
+        var preview = document.querySelector('img'); //selects the query named img
+        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+        var reader  = new FileReader();
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+
+        document.getElementById("myImg").width = "500";
+        document.getElementById("myImg").height = "300";
+        document.getElementById("myImg").style.borderRadius = "10px";
+        document.getElementById("myImg").style.border = "2px solid black";
+    }
+
+    function Submit(){
+  		alert('Uploaded successfully..');
+	}
+</script>
+</html>

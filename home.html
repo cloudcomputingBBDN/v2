@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111;
+}
+#myDIV {
+  -webkit-animation: mymove 7s infinite;
+  animation: mymove 7s infinite;
+}
+@-webkit-keyframes mymove {
+  50% {text-shadow: 20px 30px 40px black;}
+}
+body, html {
+  height: 97%;
+  margin: 0;
+}
+
+.bg {
+  background-image: url("home.jpg");
+  height: 97%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</head>
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a href="try.html">Category</a></li>
+  <li style="float:right"><a class="active" href="#">logout</a></li>
+</ul>
+<div class="bg"></div>
+</body>
+</html>
+

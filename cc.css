@@ -1,0 +1,80 @@
+body{
+	text-align: center;
+	background: url(bg3.jpg);
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+#myDIV {
+  -webkit-animation: mymove 7s infinite;
+  animation: mymove 7s infinite;
+}
+@-webkit-keyframes mymove {
+  50% {text-shadow: 20px 30px 40px black;}
+}
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    font-family: Bookman Old Style;
+}
+td {
+    padding-left:30px;
+}
+input[type=file]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: cursive;
+    background-color: rgba(255,255,255,0);
+}
+textarea{
+    width: 350px;
+    height: 100px;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: cursive;
+    background-color: rgba(255,255,255,0);
+}
+input[type=submit] {
+   
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #404040;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111;
+}
