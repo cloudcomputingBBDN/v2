@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login & remove Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+	<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+	<style>
+	html{
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+  body {
+    position: relative;
+  }
+	.login-container{
+    		margin-top: 5%;
+    		margin-bottom: 5%;
+	}
+	.login-form-1{
+    		padding: 5%;
+    		box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+	}
+	.login-form-1 h3{
+    		text-align: center;
+    		color: #333;
+	}
+	.login-form-2{
+    		padding: 5%;
+    		background: #0062cc;
+    		box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+	}
+	.login-form-2 h3{
+    		text-align: center;
+    		color: #fff;
+	}
+	.login-container form{
+    		padding: 10%;
+	}
+	.btnSubmit
+	{
+    		width: 50%;
+    		border-radius: 1rem;
+   		padding: 1.5%;
+    		border: none;
+    		cursor: pointer;
+	}
+	.login-form-1 .btnSubmit{
+   		 font-weight: 600;
+    		color: #fff;
+    		background-color: #0062cc;
+	}
+	.login-form-2 .btnSubmit{
+    		font-weight: 600;
+    		color: #0062cc;
+    		background-color: #fff;
+	}
+	.success-add,.success-del,.success-upload {
+		position: relative;
+		padding-left: 190px;
+		display: none;
+	}
+
+
+	</style>
+	</head>
+
+
+
+
+<body>
+            			
+<div id="add_user"class="container login-container">
+            <div class="row">
+                <div class="col-md-6 login-form-1">
+                    <h3>User Login Form</h3>
+                    <form id="add_user" action="">
+                       <div class="form-group">
+                          <div class="col-sm-7 forminp">
+                        
+                            <input type="text" class="form-control" id="username"placeholder="Your Username *" />
+                          </div>
+                       </div>
+                        <div class="form-group">
+                          <div class="col-sm-7 forminp">
+                            <input type="password" class="form-control" id="password" placeholder="Your Password *" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                           <div class="col-sm-offset-5 col-sm-5 forminp">
+                            <!--<input type="submit" class="btnSubmit" value="Login" />-->
+                            <a class="btn btn-default btn-md" id="adduserbut"onclick="user_register()">login</a>
+                           </div>
+                        </div>
+                <div class="form-group success-add" id="success-add">
+              		<p>Operation Successful!</p>
+            	</div>
+		  
+                        
+                    </form>
+                </div>
+                <div id="del_user"class="col-md-6 login-form-2">
+                    <h3>Remove user</h3>
+                    <form id="del_user" action="">
+                        <div class="form-group">
+                          <div class="col-sm-7 forminp">
+                            <input type="text" class="form-control" id="del_username"placeholder="Your Username*"  />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <!--<input type="password" class="form-control" placeholder="Your Password *" value="" >-->
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-offset-5 col-sm-5 forminp">
+                            <!--<input type="submit" class="btnSubmit" value="Delete" />-->
+                            <a class ="btn btn-default btn-md" id="userdelbut" onclick="del_user()">delete</a>
+                          </div>
+                        </div>
+                        <div class="form-group success-del" id="success-del">
+              		<p>Operation Successful!</p>
+            	</div>
+                        
+                    </form>
+                </div>
+             </div>
+</div>            			
+            			
+<div class="container">
+ <center><a href="cc2.html" class="link">Next page</a></center>
+</div>          			
+            			
+
+
+
+
+
+<script type="text/javascript">
+
+var link="http://0.0.0.0:5000";
+
+
+function user_register() {
+	
+		var username=document.getElementById('username').value;
+		var password=document.getElementById('password').value;
+	    var url=link+"/api/v1/users";
+	    /*alert(password);*/
+	    
+	    dict={
+			
+			"username":username,
+			"password":password,
+		}
+	
+
+	    var xhttp=new XMLHttpRequest();
+	    xhttp.onreadystatechange=function() {
+	    	if (this.readyState==4){
+		        console.log(this.status);
+		        var json = JSON.parse(xhttp.responseText);
+		        console.log(json);
+
+		        if (this.status==201)
+
+		        { 
+		          var success=document.getElementById('success-add');
+		          success.innerHTML="Operation Success";
+		          success.style.display="block";
+		        }else{
+			        var success=document.getElementById('success-add');
+			        success.innerHTML="Operation Failure";
+			        success.style.display="block";
+
+		    	}
+
+			}
+
+		};
+		xhttp.open("POST",url,true);
+	    xhttp.setRequestHeader("Content-Type","application/json");
+	    var data=JSON.stringify(dict);
+	    
+	    console.log(data);
+	    xhttp.send(data);
+
+	}
+	
+
+
+function del_user() {
+	
+		var username=document.getElementById('del_username').value;
+	    var url=link+"/api/v1/users/"+username;	
+
+	    var xhttp=new XMLHttpRequest();
+	    xhttp.onreadystatechange=function() {
+	    	if (this.readyState==4){
+		        console.log(this.status);
+		        var json = JSON.parse(xhttp.responseText);
+		        console.log(json);
+
+		        if (this.status==200)
+		        { 
+		          var success=document.getElementById('success-del');
+		          success.innerHTML="Operation Success";
+		          success.style.display="block";
+		        }else{
+			        var success=document.getElementById('success-del');
+			        success.innerHTML="Operation Failure";
+			        success.style.display="block";
+
+		    	}
+
+			}
+
+		};
+		xhttp.open("DELETE",url,true);
+	    xhttp.setRequestHeader("Content-Type","application/json");
+	    var data=JSON.stringify({});
+	    console.log(data);
+	    xhttp.send(data);
+
+	}
+
+</script>
+</body>
+
